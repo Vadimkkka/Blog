@@ -6,15 +6,15 @@ titleTemplate: Home
 hero:
   name: "Goosveridze"
   text: "Full Stack Developer"
-  tagline: "Devil in the details"
+  tagline: "Дьявол в мелочах"
   image:
     src: /me.png
   actions:
     - theme: brand
-      text: Contact me
+      text: Связь со мной
       link: mailto:vadimka.shlak@mail.ru
     - theme: alt
-      text: Blog
+      text: Блог
       link: blog/
 
 features:

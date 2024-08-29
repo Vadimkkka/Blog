@@ -14,13 +14,8 @@ export default defineConfig({
     config(md) {
       md.use(ColorfulCheckbox)
     },
-    anchor: {
-      level: 2,
-      slugify,
-    },
-    image: {
-      lazyLoading: true
-    }
+    anchor: { level: 2, slugify },
+    image: { lazyLoading: true }
   },
   sitemap: { hostname: 'https://vadimkkka.github.io' },
   base,
@@ -36,27 +31,46 @@ export default defineConfig({
     ['meta', { name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#ffffff' }],
     ['meta', { name: 'robots', content: 'index, archive' }],
     ['meta', { name: 'og:type', content: 'website' }],
-    // ['meta', { name: 'og:locale', content: 'ru' }],
+    ['meta', { name: 'og:locale', content: 'en' }],
     ['meta', { name: 'og:site_name', content: 'Goosveridze' }],
     ['meta', { name: 'og:image', content: `https://vadimkkka.github.io${base}me.png` }],
   ],
-  /* locales: {
-    root: { label: 'English', lang: 'en' },
-    ru: { label: 'Russian', lang: 'ru' }
-  }, */
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
     logo: '/oni.png',
     search: { provider: 'local' },
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Home', link: base },
       { text: 'Blog', link: blogDir },
     ],
     sidebar: {
-      [blogDir]: [{ text: 'Статьи', link:  blogDir, items: blogSidebarItems }],
+      [blogDir]: [{ text: 'Articles', link:  blogDir, items: blogSidebarItems }],
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Vadimkkka' }
     ],
+  },
+  locales: {
+    root: { label: 'English', lang: 'en' },
+    ru: {
+      label: 'Русский',
+      lang: 'ru',
+      title: 'Гусь',
+      description: 'Vadimkkka сайт',
+      head: [
+        ['meta', { name: 'keywords', content: 'разработка блог' }],
+        ['meta', { name: 'og:locale', content: 'ru' }],
+        ['meta', { name: 'og:site_name', content: 'Гусь' }],
+      ],
+      themeConfig: {
+        nav: [
+          { text: 'Главная', link: 'ru' },
+          { text: 'Блог', link: 'ru/blog' },
+        ],
+        sidebar: {
+          [blogDir]: [{ text: 'Статьи', link:  blogDir, items: blogSidebarItems }],
+        },
+      }
+    }
   }
 })
